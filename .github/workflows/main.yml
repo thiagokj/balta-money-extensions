@@ -32,4 +32,4 @@ jobs:
         run: dotnet pack --configuration Release # Cria o pacote com a versão de Release
 
       - name: Publish # Publica o pacote no NuGet. O parametro -k retorna os segredos e -s envia para API NuGet.
-        run: dotnet nuget push "MoneyExtension/bin/Release/MoneyExtensionExample.1.0.1.nupkg" -k oy2ibtbfxegqtapujf2q2acvyp7om2vezkjqpqkerln2ti -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push "MoneyExtension/bin/Release/*.nupkg" -k oy2ibtbfxegqtapujf2q2acvyp7om2vezkjqpqkerln2ti -s https://api.nuget.org/v3/index.json
