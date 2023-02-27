@@ -197,3 +197,5 @@ Project Sdk="Microsoft.NET.Sdk">
 Acesse Settings -> Secrets and variables -> New repository secret.
 
 Essa configuração do GitHub permite armazenar chaves de API e dados sensíveis para aplicação de forma segura e encriptada, sem expor de forma publica ao publicar os projetos. Ex: NUGET_TOKEN
+
+As API keys podem ser criadas no https://www.nuget.org/account/apikeys
