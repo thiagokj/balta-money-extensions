@@ -31,7 +31,7 @@ jobs:
       - name: Create the package
         run: dotnet pack --configuration Release # Cria o pacote com a versão de Release
 
-      - name: Publish # Publica o pacote no NuGet. O parametro -k retorna os segredos e -s envia para API NuGet.
+      - name: Publish # Publica o pacote no NuGet. O parâmetro -k retorna os segredos e -s envia para API NuGet.
         run: >- 
              dotnet nuget push "MoneyExtension/bin/Release/*.nupkg"
              -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
