@@ -1,5 +1,4 @@
 ﻿namespace MoneyExtension;
-
 public static class Money
 {
     public static int ToCents(this decimal amount)

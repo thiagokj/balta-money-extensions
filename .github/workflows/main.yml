@@ -1,0 +1,37 @@
+# Nome da ação a ser executada
+# As actions default podem ser consultadas em https://github.com/actions
+name: Build and deploy package
+
+# Onde será executado
+on: 
+  push:
+    branches:
+      - main
+
+# Em cima de qual S.O. será executado
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    # Passos para execução
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '7.0.x' # Instala a versão do .NET
+
+      - name: Build with dotnet
+        run: dotnet build --configuration Release # Cria uma build com a versão de Release
+
+      - name: Run test
+        run: dotnet test # Executa o teste da aplicação. Se houver falha, encerra a execução
+
+      - name: Create the package
+        run: dotnet pack --configuration Release # Cria o pacote com a versão de Release
+
+      - name: Publish # Publica o pacote no NuGet. O parametro -k retorna os segredos e -s envia para API NuGet.
+        run: >- 
+             dotnet nuget push "MoneyExtension/bin/Release/*.nupkg"
+             -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
