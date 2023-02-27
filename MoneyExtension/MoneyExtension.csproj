@@ -5,8 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-    <PackageId>MoneyExtension</PackageId>
-    <Version>1.0.0</Version>
+    <PackageId>MoneyExtensionExample</PackageId>
+    <Version>1.0.1</Version>
     <License>MIT</License>
     <Authors>Thiago</Authors>
     <Company>student</Company>
