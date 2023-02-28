@@ -5,14 +5,14 @@ public static class Money
     {
         if (amount <= 0) return 0;
 
-        var text = amount
+        var value = amount
             .ToString("N2")
             .Replace(",", "")
             .Replace(".", "");
 
-        if (string.IsNullOrEmpty(text)) return 0;
+        if (string.IsNullOrEmpty(value)) return 0;
 
-        int.TryParse(text, out var result);
+        int.TryParse(value, out var result);
         return result;
     }
 }

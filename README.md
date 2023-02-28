@@ -158,7 +158,9 @@ jobs:
 
 Uma boa prática é executar os comandos de forma local, garantindo que está tudo funcionando.
 
-As informações como versão de release, icones, briefing e outros devem ser configuradas no MoneyExtension.csproj
+As informações como versão de release, icones, briefing e outros devem ser configuradas no MoneyExtension.csproj.
+
+Obs: O PackageId deve possuir um nome exclusivo, evitando conflito com nomes publicados no Nuget. A versão tambem deve ser alterada a cada novo envio.
 
 ```xml
 Project Sdk="Microsoft.NET.Sdk">
@@ -168,7 +170,7 @@ Project Sdk="Microsoft.NET.Sdk">
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-    <PackageId>MoneyExtension</PackageId>
+    <PackageId>MoneyExtensionExampleBalta</PackageId>
     <Version>1.0.0</Version>
     <License>MIT</License>
     <Authors>Thiago</Authors>
@@ -199,3 +201,5 @@ Acesse Settings -> Secrets and variables -> New repository secret.
 Essa configuração do GitHub permite armazenar chaves de API e dados sensíveis para aplicação de forma segura e encriptada, sem expor de forma publica ao publicar os projetos. Ex: NUGET_TOKEN
 
 As API keys podem ser criadas no https://www.nuget.org/account/apikeys
+
+Obs: Pode ser adicionado o **Glob pattern: \*** na configuração da chave para selecionar todos os pacotes.
