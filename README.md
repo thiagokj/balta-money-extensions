@@ -203,3 +203,43 @@ Essa configuração do GitHub permite armazenar chaves de API e dados sensíveis
 As API keys podem ser criadas no https://www.nuget.org/account/apikeys
 
 Obs: Pode ser adicionado o **Glob pattern: \*** na configuração da chave para selecionar todos os pacotes.
+
+## Realizando alterações no pacote
+
+Criando branch para desenvolvimento
+
+1. Execute um **git pull** para baixar a ultima versão do projeto.
+
+1. Crie uma branch para realizar alterações ou criar uma funcionalidade **git checkout -b change-var-names**.
+
+1. Após alterar o código e a versão, faça testes para garantir que está tudo ok com a sequência:
+
+```Csharp
+dotnet clean
+dotnet build
+dotnet test
+```
+
+Realizando testes locais
+Obs: Esse passo realizado não influencia no git workflow, é apenas uma boa prática.
+
+1. Caso todos os testes tenham sido aprovados, crie localmente uma nova release e um novo pacote com o comando:
+
+```Csharp
+dotnet build --configuration Release
+dotnet pack --configuration Release
+```
+
+Enviando alterações para o GitHub
+
+1. Adicione as alterações realizadas no git com **git add --all**.
+1. Faça o commit com **git commit -m "finalizada mudança de nomes"**.
+1. Envie as alterações com **git push -u origin change-var-names**.
+1. No GitHub, faça a análise e aprovação do pull request.
+1. Faça o merge para branch principal e acompanhe o actions gerando o novo pacote.
+
+Finaliza organização do projeto
+
+1. Agora no terminal, volte para branch main com **git checkout main**.
+1. Apague a branch usada para as alterações com **git branch -d change-var-names**.
+1. Execute um **git pull** para receber as alterações após o merge.
